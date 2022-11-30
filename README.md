@@ -14,3 +14,5 @@ Após o cadastro o usuário é redirecionado à tela inicial com os valores em t
 
 Caso o exame seja aprovado, o card do mesmo é alterado da cor amarela para verde para uma melhor visualização, o usuário também pode navegar entre as abas "Todos, Aguardando e Aprovado" para filtrar os exames:
 ![Screenshot_9](https://user-images.githubusercontent.com/59989203/204842771-840b7565-ff97-41f2-aef4-ed2bda0ce917.png)
+
+Obs.: infelizmente algumas funcionalidades não consegui completar mas obrigado pela atenção!
