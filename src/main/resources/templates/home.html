@@ -1,0 +1,41 @@
+<html>
+	<head th:replace="~{base :: head}"></head>
+
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+		
+		<div class="container">
+			<div th:replace="~{base :: titulo('Exames')}"></div>
+			
+			<nav class="navbar navbar-expand bg-light d-flex justify-content-between mb-3">
+				<div class="navbar-nav">
+					<a th:classappend="${status} == null ? 'active'" class="nav-link" href="/home">Todos</a>
+					<a th:classappend="${status} == 'aguardando' ? 'active'" class="nav-link" href="/home/aguardando">Aguardando</a>
+					<a th:classappend="${status} == 'aprovado' ? 'active'" class="nav-link" href="/home/aprovado">Aprovado</a>
+				</div>
+				<a href="/exame/formulario"><button class="btn btn-outline-secondary me-2">Novo</button></a>
+			</nav>
+			
+			<div class="card mb-3" th:each="exame : ${exames}">
+				<th:block th:switch="${exame.status.name()}">
+					<div th:case="'AGUARDANDO'" class="card-header alert alert-warning" th:text="${exame.nomeExame}">Nome do exame</div>
+					<div th:case="'APROVADO'" class="card-header alert alert-success" th:text="${exame.nomeExame}">Nome do exame</div>
+				</th:block>
+				
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">Código do exame: <span th:text="${exame.codigoExame}"></span></div>
+						<div class="col-md-7">Data do exame: <span th:text="${#temporals.format(exame.dataDoExame, 'dd/MM/yyyy')}"></span></div>
+					</div>
+					
+					<div class="row"> 
+						<div class="col-md-4">Nome do funcionário: <span th:text="${exame.nomeFuncionario}"></span></div>
+						<div class="col-md-7">Código do funcionário: <span th:text="${exame.codigoFuncionario}"></span></div>
+					</div>
+					
+					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

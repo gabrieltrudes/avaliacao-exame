@@ -1,0 +1,53 @@
+<html>
+	<head th:replace="~{base :: head}"></head>
+
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+	
+		<div class="container">
+			<div th:replace="~{base :: titulo('Novo Exame')}"></div>
+			
+			<div class="card mt-3">
+				<form th:object="${requisicaoNovoExame}" class="card-body" action="/exame/novo" method="POST">
+	                <div class="mb-3">
+	                    <label class="form-label" for="nomeExame">Exame</label>
+	                    <input th:field="*{nomeExame}" th:errorclass="is-invalid" class="form-control" placeholder="nome do exame"/>
+	                    <small class="form-text">Informa qual o nome do exame à ser realizado.</small>
+	                    <div class="invalid-feedback" th:errors="*{nomeExame}">
+	                    	Erros no nome do exame.
+	                    </div>
+	                </div>
+	                
+	                <div class="mb-3">
+	                    <label class="form-label" for="nomeFuncionario">Funcionário</label>
+	                    <input th:field="*{nomeFuncionario}" th:errorclass="is-invalid" class="form-control" placeholder="nome do funcionário"/>
+	                    <small class="form-text">Informa qual o nome do funcionário.</small>
+	                    <div class="invalid-feedback" th:errors="*{nomeFuncionario}">
+	                    	Erros no nome do funcionário.
+	                    </div>
+	                </div>
+	                
+	                <div class="mb-3">
+	                    <label class="form-label" for="codigoExame">Código do Exame</label>
+	                    <input th:field="*{codigoExame}" th:errorclass="is-invalid" class="form-control" placeholder="código do exame"/>
+	                    <small class="form-text">Informe o código do exame.</small>
+	                    <div class="invalid-feedback" th:errors="*{codigoExame}">
+	                    	Erros no código do exame.
+	                    </div>
+	                </div>
+	                
+	                <div class="mb-3">
+	                    <label class="form-label" for="codigoFuncionario">Código do Funcionário</label>
+	                    <input th:field="*{codigoFuncionario}" th:errorclass="is-invalid" class="form-control" placeholder="código do funcionário"/>
+	                    <small class="form-text">Informe o código do funcionário.</small>
+	                    <div class="invalid-feedback" th:errors="*{codigoFuncionario}">
+	                    	Erros no código do funcionário.
+	                    </div>
+	                </div>
+	                
+	                <button class="btn btn-primary" type="submit">Cadastrar</button>
+	            </form>
+            </div>
+		</div>
+	</body>
+</html>
